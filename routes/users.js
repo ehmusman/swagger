@@ -69,7 +69,7 @@ router.get("/", (req, res) => {
  * @swagger
  * /users/{id}:
  *   get:
- *     summary: Get the book by id
+ *     summary: Get the User by id
  *     tags: [Users]
  *     parameters:
  *       - in: path
@@ -212,7 +212,8 @@ router.delete("/:id", (req, res) => {
     const { id: userId } = req.params
     const index = users.findIndex(user => user.id === userId)
     if (index === -1) return res.status(400).send("The User Was Not Found")
-    users = users.splice(index, 1)
+    users.splice(index, 1)
+
     res.status(200).send("The User Was Deleted")
 })
 module.exports = router
